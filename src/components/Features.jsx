@@ -3,10 +3,10 @@ import snowboard from '../assets/ss shredflex 2.png';
 
 export default function Features() {
   const features = [
-    { title: "HYBRID RIDE:", description: "Switch seamlessly between snowboard and skis.", offset: "0px" },
-    { title: "Self-Balancing Gyroscopes:", description: "Stabilize landings and assist with tricks.", offset: "70px" },
-    { title: "Performance Tracking:", description: "Companion app monitors jumps, spins, and turns.", offset: "0px" },
-    { title: "Lightweight & Durable:", description: "Easy handling with high-strength materials.", offset: "70px" }
+    { title: "HYBRID RIDE:", description: "Switch seamlessly between snowboard and skis."},
+    { title: "Self-Balancing Gyroscopes:", description: "Stabilize landings and assist with tricks."},
+    { title: "Performance Tracking:", description: "Companion app monitors jumps, spins, and turns."},
+    { title: "Lightweight & Durable:", description: "Easy handling with high-strength materials."}
   ];
 
   // Track screen width
@@ -26,28 +26,39 @@ export default function Features() {
     let transform = `translateX(${offset})`;
     let textAlign = 'left';
 
+    // default pill size values
+    let padding = '25px 40px';
+    let borderRadius = '999px';
+    let gap = '20px';
+
     // Adjust styles for medium screens like a tablet
     if (screenWidth <= 900) {
       width = '90%';
     }
+
     // Adjust styles for small/mobile screens
     if (screenWidth <= 600) {
-      width = '100%';
+      width = '90%';
       flexDirection = 'column';
       transform = 'translateX(0)';
       textAlign = 'center';
+
+      // Smaller, tighter pills on mobile
+      padding = '10px 14px';
+      borderRadius = '20px';
+      gap = '6px';
     }
 
     return {
       background: '#cfe4ff',
-      padding: '25px 40px',
-      borderRadius: '999px',
+      padding,
+      borderRadius,
       width,
       margin: '0 auto',
       display: 'flex',
       flexDirection,
       alignItems: 'center',
-      gap: '20px',
+      gap,
       transition: 'transform 0.3s ease',
       transform,
       textAlign,
@@ -85,13 +96,13 @@ export default function Features() {
   const leftStyle = {
     fontWeight: 700,
     whiteSpace: 'nowrap',
-    fontSize: screenWidth <= 600 ? '20px' : screenWidth <= 900 ? '22px' : '26px',
+    fontSize: screenWidth <= 600 ? '18px' : screenWidth <= 900 ? '22px' : '26px',
   };
 
   // Style for feature descriptions, responsive font sizes
   const rightStyle = {
     fontWeight: 400,
-    fontSize: screenWidth <= 600 ? '14px' : screenWidth <= 900 ? '16px' : '16px',
+    fontSize: screenWidth <= 600 ? '12px' : screenWidth <= 900 ? '16px' : '16px',
   };
 
   return (
